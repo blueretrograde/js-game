@@ -1,0 +1,21 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  border-style: border-box;
+}
+
+@media screen and (max-width: 768px) {
+  .game__background {
+    background-color: #F5B8B8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+  }
+}
+@media screen and (min-width: 769px) {
+  .game__background {
+    background-color: #F5B8B8;
+  }
+}/*# sourceMappingURL=style.css.map */
