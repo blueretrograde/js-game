@@ -22,7 +22,7 @@ answers: [
 },
 
 {id: 3,
-    question: "According to Greek mythology, where was the Greek goddess Aphrodite (Roman name: Venus) born?",
+    question: "According to Greek mythology, what is the birthplace of the Greek goddess Aphrodite (Roman name Venus)?",
     answers: [
         {text: "Athens, Greece", correct: false},
         {text: "Florence, Italy", correct: false},

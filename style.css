@@ -43,6 +43,9 @@
   .game__background .game__buttons .game__button:active {
     background-color: hotpink;
   }
+  .hide {
+    display: none;
+  }
 }
 .game__bottomscreen {
   background-image: url(https://www.lexaloffle.com/media/42638/W1-1.gif);

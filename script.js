@@ -1,5 +1,4 @@
 
-
 //ACESSING MY COMPONENTS
 
     //Game title
@@ -22,16 +21,34 @@
 
 //AN OBJECT OF QUESTIONS WITH EACH ITEM CONTAINING AN ARRAY OF 4 ANSWERS
 //(different js file for that)
-
     //@import here
 
     import {questionsArray} from "./questions/questions.js"
 
-
+console.log(questionsArray[0])
 
 //click events for Start Game, Next, Restart(at the end of game)
 
+const startGame = () => { 
+    
+    console.log("Game Started")
+    startButton.classList.add("hide")
+    
 
+}
+
+
+const getNextQuestion = () => {
+
+}
+
+const restartGame = () => {
+
+}
+
+// const clickAnswer = () => {
+
+// }
 
 //functions for Correct Answer, Wrong answer, Win, Loss
 
@@ -48,3 +65,9 @@
 
 
 //next question to be disabled till you get the anser right
+
+
+
+//Event Listeners
+
+startButton.addEventListener("click", startGame)
