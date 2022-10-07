@@ -8,7 +8,7 @@
   .game__title {
     display: flex;
     justify-content: center;
-    margin-top: 25px;
+    margin-top: 20px;
   }
   body {
     background-image: url(https://upload.wikimedia.org/wikipedia/en/c/c1/Super_Mario_Clouds.gif);
@@ -16,33 +16,83 @@
   }
   .game__background {
     background-color: #F5B8B8;
-    margin-top: 50px;
+    margin-top: 45px;
     border: #F5B8B8;
     border: 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 18px;
   }
   .game__background .game__display {
-    padding: 30px;
+    padding: 20px;
   }
   .game__background .game__buttons {
+    display: flex;
+    flex-direction: column;
     padding: 20px;
     gap: 15px;
-    display: grid;
+  }
+  .game__background .game__buttons .game__button {
+    width: 300px;
+    height: 25px;
+    border-radius: 7px;
+  }
+  .game__background .game__buttons .game__button:active {
+    background-color: hotpink;
   }
 }
 .game__bottomscreen {
   background-image: url(https://www.lexaloffle.com/media/42638/W1-1.gif);
   background-repeat: initial;
   background-size: 200px;
-  padding: 95px;
+  padding: 93px;
 }
 
 @media screen and (min-width: 769px) {
+  .game__title {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    font-size: 60px;
+  }
+  body {
+    background-image: url(https://upload.wikimedia.org/wikipedia/en/c/c1/Super_Mario_Clouds.gif);
+    background-size: 400px;
+  }
   .game__background {
     background-color: #F5B8B8;
+    margin-top: 45px;
+    border: #F5B8B8;
+    border: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 18px;
   }
+  .game__background .game__display {
+    padding: 20px;
+  }
+  .game__background .game__buttons {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 15px;
+  }
+  .game__background .game__buttons .game__button {
+    width: 300px;
+    height: 25px;
+    border-radius: 7px;
+  }
+  .game__background .game__buttons .game__button:active {
+    background-color: hotpink;
+  }
+}
+.game__bottomscreen {
+  background-image: url(https://www.lexaloffle.com/media/42638/W1-1.gif);
+  background-repeat: repeat;
+  background-size: 37vh;
+  padding: 150px;
 }/*# sourceMappingURL=style.css.map */

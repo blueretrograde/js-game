@@ -7,13 +7,14 @@
 }
 
 $primarycolor: #F5B8B8;
+$secondarycolor: hotpink;
 
 @media screen and (max-width: 768px) {
 
 .game__title {
     display: flex;
     justify-content: center;
-    margin-top: 25px;
+    margin-top: 20px;
 }
 
 body {
@@ -21,38 +22,45 @@ body {
     background-size: 270px;
 }
 
-// body {
-//     background-color: $primarycolor;
-// }
 
 .game__background {
 
     background-color: $primarycolor;
-    margin-top: 50px;
+    margin-top: 45px;
     border: $primarycolor;
     border: 30px;
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 18px;
 
     .game__display{
-        padding: 30px;
+        padding: 20px;
     }
     
     .game__buttons {
+        display: flex;
+        flex-direction: column;
         padding: 20px;
         gap: 15px;
-        display: grid;
+
+        .game__button {
+            width: 300px;
+            height: 25px;
+            border-radius: 7px;
+
+        
+        }
+
+    .game__button:active {
+        background-color: $secondarycolor;
+    } 
+        
     }
 
 
-
     }
-
-
-
 
 
 }
@@ -64,7 +72,7 @@ body {
     background-repeat:initial;
     background-size: 200px;
 
-    padding: 95px;
+    padding: 93px;
 
 }
 
@@ -74,8 +82,80 @@ body {
 
 
 @media screen and (min-width:769px) {
-    .game__background {
+ 
 
-        background-color: $primarycolor;
+
+
+    .game__title {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        font-size: 60px;
     }
+    
+    body {
+        background-image: url(https://upload.wikimedia.org/wikipedia/en/c/c1/Super_Mario_Clouds.gif);
+        background-size: 400px;
+    }
+    
+    
+    .game__background {
+    
+        background-color: $primarycolor;
+        margin-top: 45px;
+        border: $primarycolor;
+        border: 30px;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 18px;
+    
+        .game__display{
+            padding: 20px;
+        }
+        
+        .game__buttons {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            gap: 15px;
+    
+            .game__button {
+                width: 300px;
+                height: 25px;
+                border-radius: 7px;
+    
+            
+            }
+    
+        .game__button:active {
+            background-color: $secondarycolor;
+        } 
+            
+        }
+    
+    
+        }
+    
+    
+    }
+    
+    .game__bottomscreen {
+    
+        
+        background-image: url(https://www.lexaloffle.com/media/42638/W1-1.gif);
+        background-repeat: repeat;
+        background-size: 37vh;
+    
+        padding: 150px;
+
+
+
+
+
+
+
+
+
 }
