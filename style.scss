@@ -15,6 +15,7 @@ $secondarycolor: hotpink;
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    padding: -30px;
 }
 
 body {
@@ -36,7 +37,7 @@ body {
     padding: 18px;
 
     .game__display{
-        padding: 20px;
+        padding: 10px;
     }
     
     .game__buttons {
@@ -69,9 +70,9 @@ body {
 
     
     background-image: url(https://www.lexaloffle.com/media/42638/W1-1.gif);
-    background-repeat:initial;
-    background-size: 200px;
-
+    background-repeat: no-repeat;
+    background-size: 300vh;
+    margin-top: -22px;
     padding: 93px;
 
 }

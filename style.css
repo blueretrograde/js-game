@@ -9,6 +9,7 @@
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    padding: -30px;
   }
   body {
     background-image: url(https://upload.wikimedia.org/wikipedia/en/c/c1/Super_Mario_Clouds.gif);
@@ -26,7 +27,7 @@
     padding: 18px;
   }
   .game__background .game__display {
-    padding: 20px;
+    padding: 10px;
   }
   .game__background .game__buttons {
     display: flex;
@@ -45,8 +46,9 @@
 }
 .game__bottomscreen {
   background-image: url(https://www.lexaloffle.com/media/42638/W1-1.gif);
-  background-repeat: initial;
-  background-size: 200px;
+  background-repeat: no-repeat;
+  background-size: 300vh;
+  margin-top: -22px;
   padding: 93px;
 }
 
