@@ -1,31 +1,74 @@
 //MOBILE FIRST!!!! 
 
-
+* {
+    padding: 0px;
+    margin: 0px;
+    border-style: border-box;
+}
 
 $primarycolor: #F5B8B8;
 
 @media screen and (max-width: 768px) {
 
+.game__title {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+body {
+    background-image: url(https://upload.wikimedia.org/wikipedia/en/c/c1/Super_Mario_Clouds.gif);
+    background-size: 270px;
+}
+
+// body {
+//     background-color: $primarycolor;
+// }
+
 .game__background {
 
     background-color: $primarycolor;
+    margin-top: 50px;
+    border: $primarycolor;
+    border: 30px;
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 30px;
+    padding: 20px;
+
+    .game__display{
+        padding: 30px;
+    }
+    
+    .game__buttons {
+        padding: 20px;
+        gap: 15px;
+        display: grid;
+    }
+
+
+
+    }
+
+
+
+
+
 }
 
-.game__bottomscreen-test {
+.game__bottomscreen {
 
-    margin-top: 500px;
+    
+    background-image: url(https://www.lexaloffle.com/media/42638/W1-1.gif);
+    background-repeat:initial;
+    background-size: 200px;
+
+    padding: 95px;
+
 }
 
 
-
-
-
-}
 
 //WIDER THAN MOBILE
 

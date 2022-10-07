@@ -1,16 +1,46 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  border-style: border-box;
+}
+
 @media screen and (max-width: 768px) {
+  .game__title {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+  }
+  body {
+    background-image: url(https://upload.wikimedia.org/wikipedia/en/c/c1/Super_Mario_Clouds.gif);
+    background-size: 270px;
+  }
   .game__background {
     background-color: #F5B8B8;
+    margin-top: 50px;
+    border: #F5B8B8;
+    border: 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 20px;
+  }
+  .game__background .game__display {
     padding: 30px;
   }
-  .game__bottomscreen-test {
-    margin-top: 500px;
+  .game__background .game__buttons {
+    padding: 20px;
+    gap: 15px;
+    display: grid;
   }
 }
+.game__bottomscreen {
+  background-image: url(https://www.lexaloffle.com/media/42638/W1-1.gif);
+  background-repeat: initial;
+  background-size: 200px;
+  padding: 95px;
+}
+
 @media screen and (min-width: 769px) {
   .game__background {
     background-color: #F5B8B8;
