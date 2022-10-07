@@ -1,3 +1,5 @@
+
+
 //ACESSING MY COMPONENTS
 
     //Game title
@@ -7,22 +9,23 @@
     //Display (Question Display Screen)
     const questionDisplay = document.querySelector(".game__display")
     //The actual question text
-    const gameQuestions = document.querySelector(".game__questions")
+    const gameQuestion = document.querySelector(".game__question")
     //The answer buttons & Next and Start buttons (the whole div)
     const gameButtons = document.querySelector(".game__buttons")
     //An "All Selector" for the four answer buttons
-    const gameButton = document.querySelectorAll(".game__button")
+    const gameButtonArray = document.querySelectorAll(".game__button")
     //The Next Question Button
     const nextQuestion = document.querySelector(".game__button--nextquestion")
     //The Start/Restart button
     const startButton = document.querySelector(".game__button--start")
 
 
-//AN OBJECT OF QUESTIONS WITH EACH ITEM CONTATINING AN ARRAY OF 4 ANSWERS
+//AN OBJECT OF QUESTIONS WITH EACH ITEM CONTAINING AN ARRAY OF 4 ANSWERS
 //(different js file for that)
 
     //@import here
 
+    import {questionsArray} from "./questions/questions.js"
 
 
 
