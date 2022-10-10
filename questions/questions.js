@@ -12,7 +12,7 @@ answers : [
 },
 
 {id: 2,
-question: "What is the name of the fairy in Peter Pan",
+question: "What is the name of the fairy in Peter Pan?",
 answers: [
     {text: "Tinkerbell", correct: true},
     {text: "Fairy" , correct: false},
@@ -55,7 +55,7 @@ answers: [
 
 
 {id: 6,
-    question: "What is the capital city of United States of America" ,
+    question: "What is the capital city of United States of America?" ,
     answers: [
         {text: "New York City, New York", correct: false},
         {text: "Los Angeles, California", correct: false},

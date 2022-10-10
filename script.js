@@ -18,56 +18,107 @@
     //The Start/Restart button
     const startButton = document.querySelector(".game__button--start")
 
+    //Answer button 1, 2, 3 & 4
+    const answerButton1 = document.querySelector(".game__button--1")
+    const answerButton2 = document.querySelector(".game__button--2")
+    const answerButton3 = document.querySelector(".game__button--3")
+    const answerButton4 = document.querySelector(".game__button--4")
 
-//AN OBJECT OF QUESTIONS WITH EACH ITEM CONTAINING AN ARRAY OF 4 ANSWERS
+
+//AN OBJECT OF QUESTIONS WITH EACH ITEM CONTAINING AN ARRAY OF 4 OBJECTS AS ANSWERS
 //(different js file for that)
-    //@import here
 
+    //@import here
     import {questionsArray} from "./questions/questions.js"
 
-console.log(questionsArray[0])
+//Functions for Start Game, Next Question, Restart(at the end of game)
 
-//click events for Start Game, Next, Restart(at the end of game)
 
-const startGame = () => { 
-    
-    console.log("Game Started")
-    startButton.classList.add("hide")
-    
+    let randomQuestion;
+    let currentQuestionIndex;
 
-}
+    nextQuestion.classList.add("game__button")
+    startButton.classList.add("game__button")
+
+    nextQuestion.style.textAlign = "center";
+    startButton.style.textAlign = "center";
+
+
+
+
+
+    const startGame = () => { 
+        
+        startButton.classList.add("hide")
+
+        //to randomise the question order (positive & negative numbers)
+        randomQuestion = questionsArray.sort(() => Math.random() -.5)
+        currentQuestionIndex = 0
+
+        getNextQuestion()
+    }
+
 
 
 const getNextQuestion = () => {
+    resetQuestion()
+    generateQuestion(randomQuestion[currentQuestionIndex])
 
 }
+
+const generateQuestion = (question) => { 
+
+    resetQuestion()
+
+    //change the inner text to the question text
+    gameQuestion.innerText = question.question
+
+    //change the answers inner text
+    question.answers.forEach(answer => {
+
+    const button = document.createElement("button")
+    button.innerText = answer.text
+    button.classList.add("game__button")
+
+
+    if (answer.correct) { 
+        button.dataset.correct = answer.correct
+    }
+
+    button.addEventListener("click", clickAnswer)
+    gameButtons.appendChild(button)
+        
+
+    } )
+}
+
+
+const resetQuestion = () => {
+    nextQuestion.classList.add("hide")
+        while (gameButtons.firstChild) {
+            gameButtons.removeChild
+            (gameButtons.firstChild)
+        }
+}
+
 
 const restartGame = () => {
 
 }
 
-// const clickAnswer = () => {
+const clickAnswer = (event) => {
 
-// }
+}
 
-//functions for Correct Answer, Wrong answer, Win, Loss
-
-
-
-//function to reset the game 
+//functions for results [ Correct Answer, Wrong answer, Win, Loss ]
 
 
 
-
-//function to proceed to the next question
-
+//!!!!next question to be disabled till you get the answer right
 
 
 
-//next question to be disabled till you get the anser right
+//EVENT LISTENERS
 
-
-
-//Event Listeners
-
-startButton.addEventListener("click", startGame)
+//Start Button to hide after being clicked
+    startButton.addEventListener("click", startGame)
