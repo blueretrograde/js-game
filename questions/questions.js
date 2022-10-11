@@ -59,7 +59,7 @@ answers: [
     answers: [
         {text: "New York City, New York", correct: false},
         {text: "Los Angeles, California", correct: false},
-        {text: "Washington, DC,", correct: true},
+        {text: "Washington, DC", correct: true},
         {text: "Where the Kardashians live", correct: false}
     ]
 }, 
