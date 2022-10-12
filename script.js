@@ -184,7 +184,7 @@ const startGame = () => {
     princess.classList.add("hide")
 
     audio.play();
-    audio.volume = 0.03;
+    audio.volume = 0.06;
 
 
     randomQuestion = questionsArray.sort(() => Math.random() -.5)
