@@ -92,13 +92,6 @@
         nextQuestion.classList.add("nextQuestion")
             }
 
-// const checkAnswer = () => {
-
-//     if(answer.correct) {
-//         selectedButton.classList.add("correct")
-//     } else {
-//         selectedButton.classList.add("wrong")}
-// }
 
 
 //function when an answer is being clicked
@@ -116,11 +109,11 @@ const clickAnswer = (e) => {
 
     gameButtonArray.forEach(button => {
         
-        setStatusClass(selectedButton, button.dataset.correct) //button
+        // setStatusClass(selectedButton, button.dataset.correct) //button
         
     })
     
-    //if we have more questions proceed to the next one or else change to Restart etc.
+    //proceed to the next question or else change Start to Restart etc.
 
     if (randomQuestion.length > currentQuestionIndex + 1) {
         nextQuestion.classList.remove("hide")
@@ -170,14 +163,17 @@ const getNextQuestion = () => {
 //function to increase the current question index by 1
 
 const getNextRandomQuestion = () => {
+
     currentQuestionIndex++
     getNextQuestion()
+
 }
 
 
 //function to start the game (when Start is being clicked)
 
 const startGame = () => { 
+
     startButton.classList.add("hide")
     nextQuestion.classList.remove("hide")
     princess.classList.add("hide")
@@ -185,11 +181,13 @@ const startGame = () => {
     audio.play();
     audio.volume = 0.03;
 
+
     //to randomise the question order (positive & negative numbers)
     randomQuestion = questionsArray.sort(() => Math.random() -.5)
     currentQuestionIndex = 0
 
     getNextQuestion()
+
 }
 
 
@@ -206,3 +204,16 @@ nextQuestion.addEventListener("click", getNextRandomQuestion)
 gameButtonArray.forEach((button)=> {
     button.addEventListener("click", clickAnswer)
 })
+
+//---------------------------END OF CODE------------------------------------
+
+
+
+
+// const checkAnswer = () => {
+
+//     if(answer.correct) {
+//         selectedButton.classList.add("correct")
+//     } else {
+//         selectedButton.classList.add("wrong")}
+// }
