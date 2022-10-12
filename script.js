@@ -25,6 +25,9 @@
     const answerButton2 = document.querySelector(".game__button--2")
     const answerButton3 = document.querySelector(".game__button--3")
     const answerButton4 = document.querySelector(".game__button--4")
+    
+    //Audio
+    const audio = document.querySelector(".game__soundtrack")
 
 //AN OBJECT OF QUESTIONS WITH EACH ITEM CONTAINING AN ARRAY OF 4 OBJECTS AS ANSWERS
 //(different js file for that)
@@ -32,18 +35,19 @@
     //@import here
     import {questionsArray} from "./questions/questions.js"
 
+
 //DOM INTERACTION STYLING
 
-//princess image
+    //princess image
 
-const princess = document.querySelector(".princess__image")
-princess.classList.add("princess")
+    const princess = document.querySelector(".princess__image")
+    princess.classList.add("princess")
 
-//title & start button styling
+    //title & start button styling
 
-startButton.classList.add("font-family")
-title.style.fontFamily = "Silkscreen";
-//Functions for Start Game, Next Question, Restart(at the end of game)
+    startButton.classList.add("font-family", "nextQuestion")
+    title.style.fontFamily = "Silkscreen";
+    //Functions for Start Game, Next Question, Restart(at the end of game)
 
 
     let randomQuestion;
@@ -56,119 +60,137 @@ title.style.fontFamily = "Silkscreen";
     nextQuestion.classList.add("hide")
 
 
-        //---------
+//---------F U N C T I O N S-----------
 
-    const clearStatusClass = (element) => {
-        element.classList.remove("correct")
-        element.classList.remove("wrong")
+
+//to remove class correct & wrong 
+
+    const clearStatusClass = (button) => {
+        button.classList.remove("correct")
+        button.classList.remove("wrong")
     
     }
 
+//to add correct or wrong class depending on whether the answer is correct or wrong
 
-    const setStatusClass = (element, correct) => {
-        clearStatusClass(element)
-        if(correct) {
-            element.classList.add("correct")
-        } else {
-            element.classList.add("wrong")
-        }
+    const setStatusClass = (button, correct) => {
+        clearStatusClass(button)
+            if(correct) {
+                button.classList.add("correct")
+            } else {
+                button.classList.add("wrong")
+            }
     }
     
         
+//to reset questions (to treat next question as new)
 
     const resetQuestion = () => {
         clearStatusClass(document.body)
+
         nextQuestion.classList.add("hide")
         nextQuestion.classList.add("nextQuestion")
-            while (gameButtonArray.firstChild) {
-                gameButtonArray.removeChild(gameButtonArray.firstChild) //Next Question problem?
             }
-    }
 
-    const generateQuestion = (question) => { 
+// const checkAnswer = () => {
 
-        resetQuestion()
+//     if(answer.correct) {
+//         selectedButton.classList.add("correct")
+//     } else {
+//         selectedButton.classList.add("wrong")}
+// }
+
+
+//function when an answer is being clicked
     
-        //change the inner text to the question text
-        gameQuestion.innerText = question.question
-    
-        //change the answers inner text
-        question.answers.forEach(answer => {
-    
-        const button = document.createElement("button")
-        button.innerText = answer.text
-        button.classList.add("game__button")
-    
-    
-        if (answer.correct) { 
-            button.dataset.correct = answer.correct
-        }
-    
-        button.addEventListener("click", clickAnswer)
-        gameButtons.appendChild(button)
-            
-    
-        } )
-    }
-    
-
-    const getNextQuestion = () => {
-        resetQuestion()
-        generateQuestion(randomQuestion[currentQuestionIndex])
-    
-    }
-
-
-    
-    
-    const getNextRandomQuestion = () => {
-        currentQuestionIndex++
-        getNextQuestion()
-    }
-
-
-    const startGame = () => { 
-        startButton.classList.add("hide")
-        nextQuestion.classList.remove("hide")
-        princess.classList.add("hide")
-
-        //to randomise the question order (positive & negative numbers)
-        randomQuestion = questionsArray.sort(() => Math.random() -.5)
-        currentQuestionIndex = 0
-
-        getNextQuestion()
-    }
-
-
-
 const clickAnswer = (e) => {
-
+    
     nextQuestion.classList.remove("hide")
-   
+    
+
+    
 
     const selectedButton = e.target
     const correct = selectedButton.dataset.correct
     setStatusClass(document.body, correct)
 
-    Array.from(gameButtons.children).forEach(button => {
-        setStatusClass(button, button.dataset.correct)
+    gameButtonArray.forEach(button => {
+        
+        setStatusClass(selectedButton, button.dataset.correct) //button
+        
     })
     
+    //if we have more questions proceed to the next one or else change to Restart etc.
 
     if (randomQuestion.length > currentQuestionIndex + 1) {
-    nextQuestion.classList.remove("hide")
+        nextQuestion.classList.remove("hide")
     } else {
-        startButton.innerText = "Restart"
+        nextQuestion.classList.add("hide")
         startButton.classList.remove("hide")
+        startButton.innerText = "Restart"
+
+        const restartSound = () => {
+            audio.currentTime = 0
+        }
+
+        startButton.addEventListener("click", restartSound )
     }
 
 }
 
+//to generate the questions as text; to display on corresponding buttons etc
+
+const generateQuestion = (question) => { 
+
+    resetQuestion()
+
+    //change the inner text to the question text
+    gameQuestion.innerText = question.question
+
+    
+    //change the answers inner text
+    question.answers.forEach((answer, index) => {
+        
+            gameButtonArray[index].classList.remove("hide")
+            return gameButtonArray[index].innerText = answer.text
+    
+
+    } )
+}
+
+//to get the next question
+
+const getNextQuestion = () => {
+    
+    resetQuestion()
+    generateQuestion(randomQuestion[currentQuestionIndex])
+
+}
+
+//function to increase the current question index by 1
+
+const getNextRandomQuestion = () => {
+    currentQuestionIndex++
+    getNextQuestion()
+}
 
 
+//function to start the game (when Start is being clicked)
 
+const startGame = () => { 
+    startButton.classList.add("hide")
+    nextQuestion.classList.remove("hide")
+    princess.classList.add("hide")
 
-//!!!!next question to be disabled till you get the answer right
+    audio.play();
+    audio.volume = 0.03;
+
+    //to randomise the question order (positive & negative numbers)
+    randomQuestion = questionsArray.sort(() => Math.random() -.5)
+    currentQuestionIndex = 0
+
+    getNextQuestion()
+}
 
 
 
@@ -180,3 +202,7 @@ startButton.addEventListener("click", startGame)
 //Next Button to generate next question
 nextQuestion.addEventListener("click", getNextRandomQuestion) 
 
+//Game Buttons 
+gameButtonArray.forEach((button)=> {
+    button.addEventListener("click", clickAnswer)
+})
