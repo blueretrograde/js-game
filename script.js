@@ -37,10 +37,11 @@
     nextQuestion.classList.add("hide")
 
 
-//AN OBJECT OF QUESTIONS WITH EACH ITEM CONTAINING AN ARRAY OF 4 OBJECTS AS ANSWERS
+//QUESTIONS (imported from questions.js file)
 
     //@import here
     import {questionsArray} from "./questions/questions.js"
+
 
 
 //DOM STYLING
@@ -61,6 +62,7 @@
 
 
 //   !!!---------F U N C T I O N S-----------!!!
+
 
 let randomQuestion;
 let currentQuestionIndex;
@@ -111,7 +113,7 @@ const clickAnswer = (e) => {
 
     gameButtonArray.forEach(button => {
         
-        // setStatusClass(selectedButton, button.dataset.correct) //button
+        // setStatusClass(selectedButton, button.dataset.correct) //bug
         
     })
     
@@ -132,6 +134,7 @@ const clickAnswer = (e) => {
     }
 
 }
+
 
 //to generate the questions as text; to display on corresponding buttons etc
 
@@ -172,7 +175,7 @@ const getNextRandomQuestion = () => {
 }
 
 
-//function to start the game (when Start button is clicked)
+//function to start the game (when the Start button is clicked)
 
 const startGame = () => { 
 
@@ -205,6 +208,8 @@ nextQuestion.addEventListener("click", getNextRandomQuestion)
 gameButtonArray.forEach((button)=> {
     button.addEventListener("click", clickAnswer)
 })
+
+
 
 //---------------------------END OF CODE------------------------------------
 
