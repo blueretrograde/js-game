@@ -29,14 +29,21 @@
     //Audio
     const audio = document.querySelector(".game__soundtrack")
 
+    //Individual button selectors
+    answerButton1.classList.add("hide")
+    answerButton2.classList.add("hide")
+    answerButton3.classList.add("hide")
+    answerButton4.classList.add("hide")
+    nextQuestion.classList.add("hide")
+
+
 //AN OBJECT OF QUESTIONS WITH EACH ITEM CONTAINING AN ARRAY OF 4 OBJECTS AS ANSWERS
-//(different js file for that)
 
     //@import here
     import {questionsArray} from "./questions/questions.js"
 
 
-//DOM INTERACTION STYLING
+//DOM STYLING
 
     //princess image
 
@@ -47,21 +54,16 @@
 
     startButton.classList.add("font-family", "nextQuestion")
     title.style.fontFamily = "Silkscreen";
-    //Functions for Start Game, Next Question, Restart(at the end of game)
+    nextQuestion.fontFamily = "Silkscreen";
 
 
-    let randomQuestion;
-    let currentQuestionIndex;
-
-    answerButton1.classList.add("hide")
-    answerButton2.classList.add("hide")
-    answerButton3.classList.add("hide")
-    answerButton4.classList.add("hide")
-    nextQuestion.classList.add("hide")
 
 
-//---------F U N C T I O N S-----------
 
+//   !!!---------F U N C T I O N S-----------!!!
+
+let randomQuestion;
+let currentQuestionIndex;
 
 //to remove class correct & wrong 
 
@@ -94,7 +96,7 @@
 
 
 
-//function when an answer is being clicked
+//function when an answer is clicked
     
 const clickAnswer = (e) => {
     
@@ -170,7 +172,7 @@ const getNextRandomQuestion = () => {
 }
 
 
-//function to start the game (when Start is being clicked)
+//function to start the game (when Start button is clicked)
 
 const startGame = () => { 
 
@@ -182,7 +184,6 @@ const startGame = () => {
     audio.volume = 0.03;
 
 
-    //to randomise the question order (positive & negative numbers)
     randomQuestion = questionsArray.sort(() => Math.random() -.5)
     currentQuestionIndex = 0
 
