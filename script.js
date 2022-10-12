@@ -51,10 +51,10 @@
     princess.classList.add("princess")
 
     //title & start button styling
-
+    nextQuestion.classList.add("font-family", "nextQuestion")
     startButton.classList.add("font-family", "nextQuestion")
     title.style.fontFamily = "Silkscreen";
-    nextQuestion.fontFamily = "Silkscreen";
+    
 
 
 
